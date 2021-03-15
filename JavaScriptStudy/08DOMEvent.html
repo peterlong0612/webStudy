@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>08DOMEvent</title>
+    <style>
+        .onmouse{
+            background-color: #0094ff;
+            height:200px;
+            width:200px;
+        }
+    </style>
+</head>
+<body onload="">
+    <!-- onload：页面加载完成 -->
+    <!-- onclick:单击事件 -->
+    <button onclick="sgclick()">单击事件</button>
+    <!-- ondbclick:双击事件 -->
+    <button ondbclick="dbclick()">单击事件</button>
+    <!-- onkeydown:键盘按下  onkeyup:弹起  任意键 -->
+    <input type="text" onkeydown="" onkeyup="">
+
+    <!-- 鼠标事件 onmouseover:鼠标悬浮  onmouseout: 鼠标移开 -->
+    <div class="onmouse" onmouseover="" >
+        onmouse...
+    </div>
+    <!-- onblur：失去焦点   用例：验证输入合法-->
+    <!-- onfocus:获得焦点 -->
+    <input type="text" onblur=""  onfocus="">
+
+    <select name="" id="" onchange="">
+        <option value="">--请选择--</option>
+        <option value="">阴</option>
+        <option value="">阳</option>
+    </select>
+    <!-- 事件结合对象的使用
+    onclick、ondbclick一般都会结合按钮使用
+    onkeydown、onkeyup、onblur、onfocus一般结合文本域使用
+    但是 onblur、onfocus [ 绝对不会 ] 结合按钮使用
+    onmouse系列一般结合div等块元素使用
+    onchange：结合下拉框、文本框使用
+    -->
+    <script src="js/08DOMEvent.js"></script>
+    <script>
+        function sgclick(){
+            console.log('demo1');
+        }
+        function dbclick(){
+            console.log('双击');
+        }
+
+    </script>
+</body>
+</html>

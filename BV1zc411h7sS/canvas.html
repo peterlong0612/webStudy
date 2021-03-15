@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Canvas动态粒子鼠标响应特效</title>
+</head>
+<body>
+	<canvas id="can"></canvas>
+	<script>
+		/* 1：关于画布的设置 */
+		var can = document.getElementById("can")
+		var cxt = can.getContext("2d");
+		// 设置画布的宽高和浏览器窗口一样
+		can.width = window.innerWidth;
+		can.height = window.innerHeight;
+		can.style.backgroundColor = "#94ff00";
+		// 设置画布的宽高随着浏览器窗口大小变化
+		window.onresize = function(){
+			can.width = window.innerWidth;
+			can.height = window.innerHeight;
+		}
+
+		/* 2：关于鼠标的设置 */
+		// 定义鼠标遍历 水平、垂直位置xy 粒子响应距离max 
+		var mouse = {x:null, y:null,max:20000};
+		// 添加两个事件：鼠标移动、鼠标离开
+		window.onmousemove = function(e){//鼠标对象
+			// 给定义的鼠标设置水平位置的值
+			mouse.x = e.clientX;
+			// 垂直位置
+			mouse.y = e.clientY;
+		}
+		window.onmouseout = function(){
+			// 定义的鼠标位置还原
+			mouse.x = null;
+			mouse.y = null;
+		}
+
+		/* 3：关于粒子之间的操作：连线，粒子跟随鼠标 */
+		// 存储粒子对象数组
+		var dots = [];
+		// 创建粒子并存储到数组
+		// 粒子（点）的位置、运动速度
+		for(var i=0;i<200;i++){
+			var x = Math.random()*can.width;
+			var y = Math.random()*can.height;
+			var xa = (Math.random() - 0.5)*0.2; // 速度可以写死不用随机，-0.5控制移动速度方向（正负）
+			var ya = (Math.random() - 0.5)*0.2;
+			// 添加到粒子数组中
+			dots.push({x,y,xa,ya,max:6000}); //max-两个粒子之间是否连线的临界距离
+		}
+		// 绘制粒子和粒子之间的连线， 粒子鼠标跟随
+		// 定义一个方法描述粒子的运动方式
+		function animation(){
+			// 1：先清空整个画布
+			cxt.clearRect(0, 0, can.width, can.height); 
+			// 2. 鼠标粒子结合，把鼠标数组添加到粒子数组
+			var ndots = [mouse].concat(dots); // 追加，ndot包含鼠标的粒子数组
+			// 3. 粒子操作：改变粒子坐标
+			dots.forEach(function(dot){
+				dot.x += dot.xa;
+				dot.y += dot.ya;
+				//画布边界碰撞判断处理
+				//反弹
+				dot.xa *= (dot.x>can.width || dot.x<0)?-1:1;
+				dot.ya *= (dot.y>can.height || dot.y<0)?-1:1;
+
+				//绘制粒子
+				cxt.fillRect(dot.x,dot.y,1,1); //矩形长宽为1，即一个点
+
+				//4.连线（粒子之间,粒子和鼠标）
+				for (var i = 0; i < ndots.length; i++) {
+					// 判断粒子之间的距离
+					var d = ndots[i];
+					// 判断当前粒子对象是否是遍历出来的粒子
+					if(d == dot)continue;
+					// 开始计算粒子的距离
+					// 两个粒子水平距离
+					var dx = dot.x - d.x;
+					var dy = dot.y - d.y;
+					// 粒子距离
+					var dxy=dx*dx + dy*dy;
+					// 判断是否连线 与最大连线距离比较
+					if (dxy<d.max) {
+						// 判断取出来的对象是不是鼠标
+						if(d == mouse && dxy > d.max/2){
+							// 改变粒子的位置
+							dot.x -=dx*0.03; // 缓冲参数，改变更流畅
+							dot.y -=dy*0.03; 
+						}
+						// 绘制线条
+						///*******///
+						// let lineargradient = ctx.createLinearGradient(x1,y1,x2,y2);		// 线性渐变，渐变的起点 (x1,y1) 与终点 (x2,y2)
+						// let linearGradient = ctx.createLinearGradient(0,0,200,0);
+						// linearGradient.addColorStop(0,"#ffffff");
+						// linearGradient.addColorStop(0.25,"#94ff00");
+						// linearGradient.addColorStop(0.50,"#ff9400");
+						// linearGradient.addColorStop(1.0,"#0094ff");
+						// ctx.fillStyle = linearGradient;
+						///***///
+
+						cxt.beginPath();
+						cxt.lineWidth = 0.3;
+						cxt.fillStyle = "red";
+						cxt.stroleStyle = "#ffffff";
+						// cxt.fillStyle = "aqua";
+						//起始位置
+						cxt.moveTo(dot.x,dot.y);
+						//结束位置
+						cxt.lineTo(d.x,d.y);
+						cxt.stroke();
+						cxt.closePath();
+					} 
+				}
+				// 从数组中删除比较过的粒子
+				ndots.splice(ndots.indexOf(dot),1);
+			}); // dot.forEach(function)
+
+			// 重复调用该方法
+			setInterval(animation, 1000/60);
+		}
+		// 调用该粒子运动的方法
+		animation();
+
+	</script>
+	<p>
+		<script src="https://eqcn.ajz.miesnfu.com/wp-content/plugins/wp-3d-pony/live2dw/lib/L2Dwidget.min.js"></script>
+  <!--小帅哥： https://unpkg.com/live2d-widget-model-chitose@1.0.5/assets/chitose.model.json-->
+  <!--萌娘：https://unpkg.com/live2d-widget-model-shizuku@1.0.5/assets/shizuku.model.json-->
+  <!--小可爱（女）：https://unpkg.com/live2d-widget-model-koharu@1.0.5/assets/koharu.model.json-->
+  <!--小可爱（男）：https://unpkg.com/live2d-widget-model-haruto@1.0.5/assets/haruto.model.json-->
+  <!--初音：https://unpkg.com/live2d-widget-model-miku@1.0.5/assets/miku.model.json-->
+   <!-- 上边的不同链接显示的是不同的小人，这个可以根据需要来选择 下边的初始化部分，可以修改宽高来修改小人的大小，或者是鼠标移动到小人上的透明度，也可以修改小人在页面出现的位置。 -->
+  <script>
+    /*https://unpkg.com/live2d-widget-model-shizuku@1.0.5/assets/shizuku.model.json*/
+    L2Dwidget.init({ "model": { jsonPath:
+          "https://unpkg.com/live2d-widget-model-koharu@1.0.5/assets/koharu.model.json",
+        "scale": 1 }, "display": { "position": "right", "width": 110, "height": 150,
+        "hOffset": 0, "vOffset": -20 }, "mobile": { "show": true, "scale": 0.5 },
+        "react": { "opacityDefault": 0.8, "opacityOnHover": 0.1 } });
+  </script>
+
+	</p>
+</body>
+</html>
+
