@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>My web</title>
+
+        <style>
+            /*
+            层级选择器
+            通过层次关系定位样式的作用范围，层级是兼容的，不必每层都写，只要能区分就行
+            层级选择器的每一个层级的确定可以是标签名、id、类，
+            id格式为#id，类格式为.class
+            不同层级记得要空格分开
+            */
+            p span{
+                color: red;
+            }
+            /*
+            属性选择器
+            根据标签的某个属性值确定样式作用范围
+            */
+            .i[type=password]{
+            /* input[type=password]{ */
+                width: 300px;
+                height: 40px;
+            }
+            /*
+            分组选择器
+            将多个不同层级关系的class属性 id 标签名 同时使用相同的样式效果
+            */
+            h1,.c1,.c2,#pa{
+                color: green;
+            }
+
+            /* 
+            伪类选择器 
+            可以四个同时使用，此时注意顺序：
+                hover必须在link、visited之后，active必须在hover之后，才是有效的
+            伪类名称大小写不敏感
+            初始状态为访问过，一般是爱浏览器使用记录中目标网址已经被访问过，此时可以尝试ctrl+shift+del清除访问数据
+            */
+            a:link{
+                color: black;    
+            }
+            a:visited{
+                color: darkgray;
+            }
+            a:hover{
+                color: yellow;
+            }
+            a:active{
+                color: darkred;
+            }
+
+            div{
+                border: black double 1px;
+                width: 200px;
+                height: 200px;
+                background-color: lightgreen;
+            }
+            div:hover{
+                background-color: green;
+            }
+
+        </style>
+    </head>
+    <body>
+        <span>今日现有确诊，全国新增确诊忍住为143人</span> 
+        <!-- 属性选择器 -->
+        <p>
+            <font>
+                <span>
+                    其中湖北新增134
+                </span>
+            </font>
+            <span>
+                非湖北新增9例
+            </span>
+        </p>
+
+        <input class="i" type="text">
+        <input class="i" type="password">
+        <input class="i" type="password">
+
+        <h1 id="ha">今日疫情通报</h1>
+        <h2 class="c1">今日疫情通报</h2>
+        <span class="c2">今日疫情通报</span>
+        <p id="pa">今日疫情通报</p>
+        <br>
+        伪类选择器
+        <br>
+        <a href="https://www.baidu.com" type="blank"> <strong><big>百度</big></strong>  </a>
+
+        <div>
+            伪类,非超链接标签
+        </div>
+    </body>
+</html>

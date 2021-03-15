@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>My web</title>
+    </head>
+    <body>
+        <!-- 表格 table
+            thead
+                td
+            tbody 如果不写浏览器会自动添加tbody
+            tfoot
+            th自带加粗居中的td 
+        -->
+        跨行跨列===合并单元格
+
+        <table align="center" border="1px" cellspacing="0" cellpadding="5px" >
+            <thead bgcolor="#0094ff">
+                <tr>
+                    <!-- column span 单元格横向跨列 -->
+                    <th colspan="4">名单</th>
+                </tr>
+                <tr>
+                    <th>姓名</th>
+                    <th>年龄</th>
+                    <th>班级</th>
+                    <th>分数</th>
+                </tr>
+            </thead>
+            <tbody bgcolor="#94ff00">
+                <tr>
+                    <td rowspan="2">张三丰</td>
+                    <td>108</td>
+                    <td rowspan="2">武当修仙1班</td>
+                    <td>100</td>
+                </tr>
+                <tr>
+                    <td>108</td>
+                    <!-- <td>武当修仙1班</td> -->
+                    <td>100</td>
+                </tr>
+                <tr>
+                    <td>张翠山</td>
+                    <td>30</td>
+                    <td>武当联姻1班</td>
+                    <td>80</td>
+                </tr>
+                <tr>
+                    <td>虚竹</td>
+                    <td>30</td>
+                    <td>少林还俗1班</td>
+                    <td>90</td>
+                </tr>
+                <tr>
+                    <td>悟空</td>
+                    <td>600</td>
+                    <td>花果山修仙班</td>
+                    <td>110</td>
+                </tr>
+                <tr>
+                    <td>李长庚</td>
+                    <td>850</td>
+                    <td>洪荒修仙1班</td>
+                    <td>200</td>
+                </tr>
+            </tbody>
+            <tfoot bgcolor="#9400ff">
+                <tr>
+                    <td>总人数</td>
+                    <td>5</td>
+                    <td>总分数</td>
+                    <td>580</td>
+                </tr>
+                <tr>
+                    <td>及格人数</td>
+                    <td>5</td>
+                    <td>总分数</td>
+                    <td>580</td>
+                </tr>
+            </tfoot>
+        </table>
+        <!-- table>tr*5>td*2 -->
+
+        <!-- 表格嵌套 -->
+        <table border="1px;" cellspacing="0" cellpadding="5px">
+            <tr>
+                <th colspan="3">学生成绩单</th>
+            </tr>
+            <tr>
+                <td>姓名</td>
+                <td colspan="2" rowspan="5">
+                    <table border="1px;" cellspacing="0" cellpadding="4px" width="100%">
+                        <tr>
+                            <th>学科</th>
+                            <th>分数</th>
+                        </tr>
+                        <tr>
+                            <td>语文</td>
+                            <td>98</td>
+                        </tr>
+                        <tr>
+                            <td>数学</td>
+                            <td>96</td>
+                        </tr>
+                        <tr>
+                            <td>语文</td>
+                            <td>97</td>
+                        </tr>
+                        <tr>
+                            <td>数学</td>
+                            <td>99</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td rowspan="2">逍遥张三</td>
+            </tr>
+            <tr>
+                
+            </tr>
+            <tr>
+                <td rowspan="2">鬼谷李四</td>
+            </tr>
+            <tr>
+                
+            </tr>
+        </table>
+
+    </body>
+</html>

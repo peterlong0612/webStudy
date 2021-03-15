@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>My web</title>
+        <style>
+            /*
+            后台人员也要熟练使用的选择器：（更多参见w3school）
+            
+            标签名选择器：给页面上所有同名的标签定义样式的选择器
+            语法    标签名{样式}
+            
+            id选择器
+            一般body中的任何标签都有id属性
+            id一般用于帮助我们定义到页面上唯一的一个标签，一般不能重复
+            id命名规则：字母数字 _ 和 $ , 不推荐$ 会和jquery冲突    
+            语法 #id{样式}
+
+            类选择器
+            一般body中的所有标签都有class属性
+            多个不同的标签可以有相同的class属性值
+            通过标签的class属性确定样式作用范围
+            语法 .class属性值{样式}
+            */
+            span{
+                background-color: skyblue;
+                font-size: 40px;
+                font-family: "楷体";
+                color: orange;
+            }
+
+            #p1,#p2{
+                border: orange 1px dotted;
+                background-color: palegreen;
+                color: gray;
+                width: 300px;
+            }
+
+            .c1{
+                background-color: cadetblue;
+                font-size: 40px;
+                font-family: "微软雅黑";
+                color: black;
+                text-decoration: none;/*去掉链接自带的下划线*/
+            }
+
+        </style>
+    </head>
+    <body>
+        <span id="s1">今天是2021年2月27日</span><br>
+        <span id="s2">今天是2021年2月27日</span><br>
+
+        <!-- 写一样的id也可以用，但是不规范 -->
+        <p id="p1">今天是2021年2月27日</p>
+        <p id="p2">今天是2021年2月27日</p>
+
+        <a href="#" class="c1">百度</a>
+    </body>
+</html>

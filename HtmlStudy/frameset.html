@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>My web</title>
+    </head>
+
+    <!-- 
+        frameset不能有body标签，重复
+        rows按行纵向排列，头尾各占200,300，中间占剩下,*是通配符 
+        cols 横向排列
+    -->
+    <!-- <frameset rows="150px,*,300px">
+        <frame src="top.html"/>
+        <frame src="https://www.baidu.com" >
+        <frame src="bottom.html">
+    </frameset> -->
+
+    <!-- <frameset cols="150px,*,300px">
+        <frame src="index.html"/>
+        <frame src="https://www.baidu.com" >
+        <frame src="index.html">
+    </frameset> -->
+
+    <!-- 类似邮箱的上中下页面结构，中间分左右，且有点击左边时右边显示的交互 -->
+    <frameset rows="150px,*,200px">
+        <frame src="top.html">
+        <frameset cols="100px,*">
+            <frame src="frameleft.html">
+            <frame name="frameright" >
+        </frameset>
+        <frame src="bottom.html">
+    </frameset>
+
+    <!-- 
+    span    行内标签，不会独占一行 
+        一般用于网页上划定一个范围，一般结合CSS样式，帮助我们确定某些显示效果的作用范围
+
+    div     块标签，独占一行 p
+        一般用于网页布局 
+    -->
+
+</html>

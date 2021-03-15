@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <title>My web</title>
+</head>
+<body>
+    <!-- 框架标签
+			作用：将多个不同页面的标签组织在同一个页面上
+			iframe 可以在当前网页上引入其他的网页
+				height 百分比无效（一般宽度是有界限的，网页的高度理论上说是没有界限的）
+		-->
+    <iframe width="50%" height="300px" src="https://www.baidu.com" name="ifr"></iframe>
+		<!-- iframe不是块标签，不会独占一行，它是行内标签 -->
+		<!-- 两个行内标签都50%一般不会就是一行而是自动换行，如果排在两行，试试和减小到100%以下 -->
+
+		<!-- target 
+			_self 本页面打开
+			_blank 新页面打开
+			iframe的name 在对应iframe中打开
+			切换速度过快可能会在我新窗口打开 
+		-->
+        <a href="https://www.jd.com/">京东</a>
+		<a href="https://www.jd.com/" target="ifr">京东</a>
+		<a href="https://www.taobao.com/" target="ifr">淘宝</a>
+
+        <!-- 这里jd失效，淘宝有效，为何？ -->
+</body>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>My web</title>
+        <style>
+            .outerdiv{
+                border: 2px lightgray solid;
+                width: 1200px;  /*边线也是占用像素的，要计算在内，或者去掉*/
+                height: 340px;
+                margin: 10px auto;
+            }
+            .d1,.d2,.d3{
+                /* diplay：inline; 变成一行之后宽高会失效 */
+                height: 200px;
+                width: 200px;
+                /*
+                解决方法：浮动 
+                让多个块标签处于同一行，不用转换为行内元素，盒子模型的宽和高等特征得以保留
+                浮动范围基于父标签范围内，不够宽则会另起一行
+                */
+                /* 块之间的距离 */
+                margin: 20px;
+                padding: 30px;
+                font-size: 20px;
+            }
+            .d1{
+                background-color:lightgreen;
+                /* 小块往上浮动的时候往哪儿飘 */
+                float: left; /*最左边*/
+            }
+            .d2{
+                background-color:gold;
+                float: left;
+            }
+            .d3{
+                /* 如果宽度不够，会另起一行 */
+                background-color:pink;
+                float: left;
+            }
+            .ad_item img{
+                width: 590px;
+                height: 160px;
+            }
+            .ad_item{
+                /* border: 1px red solid; */
+                width: 590px;
+                height: 160px;
+                float: left;
+
+            }
+            #ad1,#ad3{
+                margin-right: 20px;
+            }
+            #ad4,#ad3{
+                margin-top: 20px;
+            }
+        </style>
+    </head>
+    <body>
+    <!-- 
+        1 盒子模型 >>> 标签和标签存在包含关系时 位置的调整
+        2 浮动 >>> 多个块标签处于同一行的位置处理
+        3 定位 >>>> 块标签在页面指定位置的处理问题
+        块标签 >>>> 独立站用一行的标签
+        行内标签（内联元素） >>>>不会独立占用一行的标签
+        网页的布局基本都是用块标签来完成的
+        一般做布局使用的标签是 div 帮助将网页划分成多个小方块
+
+        div边界类型 dotted dashed solid double groove ridge inset outset
+    -->
+    <div class="outerdiv">
+        <div class="d1">
+            1
+        </div>
+        <div class="d2">
+            2
+        </div>
+        <div class="d3">
+            3
+        </div>
+    </div>
+    
+    <div class="outerdiv">
+        <div id="ad1" class="ad_item">
+            <a href="https://cx.12306.cn/tlcx/index.html" target="_blank">
+                <img src="https://www.12306.cn/index/images/abanner01.jpg">
+            </a>             
+        </div>
+        <div id="ad2" class="ad_item">
+            <a href="https://exservice.12306.cn/excater/index.html" target="_blank">
+                <img src="https://www.12306.cn/index/images/abanner02.jpg">
+            </a>
+        </div>
+        <div id="ad3" class="ad_item">
+            <a href="https://kyfw.12306.cn/otn/view/my_insurance.html" target="_blank">
+                <img src="https://www.12306.cn/index/images/abanner05.jpg">
+            </a>
+        </div>
+        <div id="ad4" class="ad_item">
+            <a href="https://kyfw.12306.cn/otn/view/commutation_index.html" target="_blank">
+                <img src="https://www.12306.cn/index/images/abanner06.jpg">
+            </a>
+        </div>
+    </div>
+    </body>
+</html>

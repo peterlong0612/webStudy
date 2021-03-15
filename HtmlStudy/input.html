@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>My web</title>
+    </head>
+    <body>
+        <!-- 
+		1 使用form表单标签包裹数据提交的范围
+		2  action 确认数据要提交到的地址
+		3  method 确定提交的方法
+			get	
+				数据通过地址栏提交（长度限制数据量有限；只能提交文本；数据显式传递传递不安全）
+			post
+				单独打成数据包（大小一般认为没有限制）
+				数据包可以放文件
+				数据不显示在地址栏，相对安全（仍然有相当风险）
+				
+			get可在action指向的地址栏看见数据参数，post在浏览器F12调试中，点击Post参数中看到
+			-->
+			<!-- https://www.baidu.com/?username=qwer&pwd=qwer&gender=male&hobby=1&hobby=2&hobby=3&myfile=
+			&myintro=%E8%AF%B7%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8B%E4%BD%A0%E8%87%AA%E5%B7%B1qwerwqer
+			&province=No.9+World -->
+
+		<!-- 4 准备一个提交按钮
+			不能是button，button只是一个简单的按钮，不具备提交功能
+			应使用submit 具备提交功能，必须放在form内部表示是当前表单的提交
+		5 需要给提交数据的输入框添加name和value（一般为默认值）属性
+			name给后台区别不同数据的意义
+			value用于定义提交的数据
+		form只能提交输入标签的数据
+			-->
+		<form action="https://www.baidu.com" method="GET">
+			账号<input type="text" name="username"><br>
+			密码<input type="password" name="pwd"><br>
+			性别
+			<!-- value在此可以区别到底是男是女 -->
+			<input type="radio" name="gender" value="male" checked>男
+			<input type="radio" name="gender" value="female">女
+			<br>
+			爱好
+			<!-- 如果要让多个单选框有互斥效果
+			那么需要给多个单选框添加neme属性
+			并且那么属性的值是相同的 -->
+			<input type="checkbox" name="hobby" value="1">遁术
+			<input type="checkbox" name="hobby" value="2" checked>体术
+			<input type="checkbox" name="hobby" value="3">道法
+			<input type="checkbox" name="hobby" value="4">灵技
+			<input type="checkbox" name="hobby" value="5">武技
+			<br>
+			请选择文件
+			<input type="file" name="myfile"/><br>
+			个人简介 
+			<!-- 文本域 空格、换行会被识别-->
+			<textarea style="width: 300px;height: 200px;" name="myintro">请介绍一下你自己</textarea>
+			<br>
+			籍贯
+			<!-- 下拉选择 默认选择第一个 -->
+			<select name="province" ><!-- -请选择籍贯- --> <!-- multiple="multiple" -->
+				<option value="Muye village">木叶村</option>
+				<option value="HongHuang">洪荒</option>
+				<option value="No.9 World">第九山海</option>
+				<option value="51 Area">51区</option>
+				<option selected="selected">-请选择籍贯-</option>
+			</select>
+			<br>
+			<!-- <input type="button" value="提交"> -->
+			<!-- submit 必须在对应form表单之内 -->
+			<input type="submit" value="提交">
+			<input type="reset" value="清空">
+		</form>
+
+    	<table border="1px solid" cellspacing="0" align="center">
+    		<tr>
+    			<td>
+    				姓名
+	    		</td>
+	    		<td>
+	    			<input type="text" name="">
+	    		</td>
+    		</tr>
+    		<tr>
+    			<td>
+    				性别
+    			</td>
+    			<td>
+    				<input type="radio" name="gender" checked>男
+    				<input type="radio" name="gender">女
+    			</td>
+    		</tr>
+    		<tr>
+    			<td>
+    				爱好
+    			</td>
+    			<td>
+    				<input type="checkbox" name="hobby">遁术
+			    	<input type="checkbox" name="hobby" checked>体术
+			    	<input type="checkbox" name="hobby">道法
+			    	<input type="checkbox" name="hobby">灵技
+			    	<input type="checkbox" name="hobby">武技
+    			</td>
+    		</tr>
+    		<tr>
+    			<td>选择文件</td>
+    			<td>
+    				<input type="file" name=""/>
+    			</td>
+    		</tr>
+    		<tr>
+    			<td>
+    				个人简介
+    			</td>
+    			<td>
+    				<textarea style="width: 300px;height: 200px;">请介绍一下你自己</textarea>
+    			</td>
+    		</tr>
+    		<tr>
+    			<td>
+    				籍贯
+    			</td>
+    			<td>
+    				<select ><!-- -请选择籍贯- --> <!-- multiple="multiple" -->
+			    		<option>木叶村</option>
+			    		<option>洪荒</option>
+			    		<option>第九山海</option>
+			    		<option>51区</option>
+			    		<option selected="selected">-请选择籍贯-</option>
+	    			</select>
+    			</td>
+    		</tr>
+    	</table>
+    </body>
+</html>

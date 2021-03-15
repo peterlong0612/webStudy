@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>My web</title>
+        <style>
+            #div1{
+                border: 1px groove red;
+                height: 50px;
+                width: ;
+                /* 内边距 
+                盒内元素跟外部元素边界的距离，
+                内边不会向内占用，而是将块标签放大
+                内部盒子margin不会扩张，但是外部盒子padding会扩张,而不是侵占内部容积
+                所以内部盒子的margin: 0px auto;  不能换成外部盒子的 padding:0px auto; 
+                 */
+                padding: 100px;
+                /* 上下 50 左右100 */
+                /* padding:50px 100px; */
+                 /* 顺时针：上右下左 */
+                /* padding: 100px 150px 200px 250px; */
+                /* padding-top: 20px;
+                padding-right: 20px; */
+            }
+            #div2{
+                border: blueviolet 2px inset;
+                width: 60%;
+                height: 100px;
+                /* 外边距 当前块标签外部和父级块标签之间的距离 */
+                /* margin: 200px; */
+                /* 上下50 左右100 */
+                /* margin: 50px 100px; */
+                /* 顺时针上右下左 */
+                margin: 50px 60px 70px 80px;   
+            }
+
+            .outerdiv{
+                border: 2px inset  skyblue;
+                width: 400px;
+                height: 200px;
+                /* padding-top: 20px;
+                padding-left: 50px ; */
+                /* 外边距居中 
+                1 计算像素宽度，手动设置
+                2 auto自动居中
+                */
+                margin: 0px auto;
+
+            }
+            .innerdiv{
+                border: inset 2px gold;
+                width: 100px;
+                height: 100px;
+                /* margin-top: 20px;
+                margin-left: 30px; */
+                
+                margin: 10px auto;
+                /* 第一个auto失效，因为网页上下高度理论无限制 */
+                /* margin: auto auto; */
+
+
+            }
+            .div3{
+                /*
+                width 宽度 内部容量横向为**像素
+                height 高度 内部容量纵向高度为**像素
+                容量大小不会改变
+                border 边界是向外延伸的
+                padding 也是向外扩张的
+                所以内部盒子的margin: 0px auto;  不能换成外部盒子的 padding:0px auto; 
+                */
+                border: 10px yellow solid;
+                height: 200px;
+                width:200px ;
+                background-color: skyblue;
+                padding: 20px;
+            }
+            .s3{
+                /* 
+                width 宽度 内部容量横向为**像素
+                height 高度 内部容量纵向高度为**像素
+                
+                行内元素设置宽高未必有效
+                块元素设置宽高一定有效 */
+                /* span行内元素没有盒子模型，没有办法设置内外边距 
+                除非将行内元素转换为块元素
+                display   block行内转换为块  inline块转换为行内
+                但是转换为行内之后，宽高设置失效，参见float.html
+                */
+                height: 100px;
+                width: 100px;
+                display: block;
+            }
+        </style>
+    </head>
+    <body>
+    <!-- 
+        1 盒子模型 >>> 标签和标签存在包含关系时 位置的调整
+        2 浮动 >>> 多个块标签处于同一行的位置处理
+        3 定位 >>>> 块标签在页面指定位置的处理问题
+        块标签 >>>> 独立站用一行的标签  div p h1 ul table li
+        行内标签（内联元素） >>>>不会独立占用一行的标签     frame span b td a img
+
+        网页的布局基本都是用块标签来完成的
+        一般做布局使用的标签是 div 帮助将网页划分成多个小方块
+
+        div边界类型 dotted dashed solid double groove ridge inset outset
+    -->
+    
+
+    盒子模型 
+    当块标签存在包含关系时 位置的调整
+
+    <div id="div1" >
+        div1
+    </div>
+    <div id="div2">
+        div2
+    </div>
+
+    <div class="outerdiv">
+        <div class="innerdiv">
+            innerdiv 居中
+        </div>
+        
+    </div>
+    <div class="div3">
+        <!-- 
+            span行内元素没有盒子模型，没有办法设置内外边距 
+            除非将行内元素转换为块元素display
+        -->
+        <!-- 只有块标签才可以 -->
+        <span class="s3">
+            width height 为容积，不变<br>
+            padding border 向外扩张
+        </span>
+    </div>
+    </body>
+</html>

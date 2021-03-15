@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>My web</title>
+        <style>
+            div{
+                height: 200px;
+                width: 200px;
+            }
+            .div1{
+                background-color: gray;
+                /* 
+                定位
+                绝对定位 absolute
+                    以左上角点为基准
+                    当位置改变，该位置的坐标原点被释放，后续其他标签可以占用该位置 
+
+                相对定位 relative
+                    相对于原来的位置
+                    位置改变时，不会释放原来的位置，其他标签不能占用原有位置
+
+                相对浏览器窗口定位 fixed  固定
+                    浏览器页面上下滑动时会固定在窗口上
+                 */
+                /* position: absolute; 绝对定位 */
+                position: relative;
+                top:200px;
+                /* bottom: ;上下冲突 */
+                left: 300px;
+                /* right: ; */
+            }
+            .div2{
+                background-color: burlywood;
+
+                /* 绝对定位可以被覆盖 */
+                
+            }
+            .sample{
+                margin-right: 0px;
+                width: 50px;
+                /* background-color: blue; */
+                height: 397px;
+                border:blue 1px solid;
+                position: fixed;
+                right: 0;
+                top: 150px;
+            }
+            .s_item{
+                width: 50px;
+                background-color: rgba(00, 94, ff, 0.5);
+                height: 86px;
+                /* border: red 1px solid; */
+                margin-bottom: 5px;
+            }
+            .s_item img{
+                width: 50px;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- 绝对定位 -->
+        <!-- 相对定位 -->
+        <!-- 相对浏览器窗口位置定位 -->
+
+        <div class="div1">
+            div1
+            上200
+            左300
+        </div>
+        <div class="div2">
+            div2
+        </div>
+        qwerqwerqwer
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <div class="sample">
+            <div class="s_item">
+                <img src="res/img/locate1.png">
+            </div>
+            <div class="s_item">
+                <img src="res/img/locate2.png">
+            </div>
+            <div class="s_item">
+                <img src="res/img/locate3.png">
+            </div>
+            <div class="s_item" style="height: 124px;">
+                <img src="res/img/locate4.png">
+            </div>
+        </div>
+        qwerqwerqwer
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        qwerqwerqwer
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        qwerqwerqwer
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        qwerqwerqwer
+    </body>
+</html>

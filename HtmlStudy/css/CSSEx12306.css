@@ -1,0 +1,200 @@
+*{
+    border: 0px;
+    margin: 0px;
+    padding: 0;
+}
+
+/* 导航栏样式 */
+.navi{
+    /* border: red 1px solid; */
+    /* width: 100%; */
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    height: 40px;
+    background-color: #3b99fc;
+    /* margin: 0px auto; */
+}
+.navi ul{
+    width: 1160px;
+    height: 40px;
+    list-style: none;
+    margin: 0px auto;/*没有宽高，居中不好使*/
+    /* border: solid 1px red; */
+}
+.navi .navi_i{
+    float: left;
+    width: 145px;
+    height: 40px;
+    text-align: center; /*文字左右居中*/
+    line-height: 40px;  /*文字上下居中一般方法*/
+    color: white;
+}
+.navi .navi_i:hover{
+    background-color: #2f83eb;
+}
+.navi_i span{
+    /* border: red 1px solid; */
+    /* width: 145;
+    height: 40px; /*行内元素。宽高一般无效
+    text-align: center; /*文字左右居中*/
+    /*line-height: 40px;  /*文字上下居中一般方法*/
+    /* color: white; */
+    font-size: 14px;
+}
+
+/* 服务栏样式 */
+.serve_list{
+    margin: 20px auto;
+    /* border: red 1px solid ; */
+    height: 70px;
+    width: 1200px;
+}
+.serve_i{
+    /* border: 1px red solid; */
+    width: 170px;
+    height: 70px;
+    float: left;
+    text-align: center;
+}
+.serve_i dd{
+    margin: 10px auto;
+    /* border: red 1px;; */
+}
+
+.serve_i a{
+    text-decoration: none;
+}
+
+/*4格广告栏*/
+.outerdiv{
+    border: 1px lightgray solid;
+    width: 1200px;  /*边线也是占用像素的，要计算在内，或者去掉*/
+    height: 340px;
+    margin: 50px auto;
+}
+.ad_item img{
+    width: 590px;
+    height: 160px;
+}
+.ad_item{
+    /* border: 1px red solid; */
+    width: 590px;
+    height: 160px;
+    float: left;
+
+}
+#ad1,#ad3{
+    margin-right: 20px;
+}
+#ad4,#ad3{
+    margin-top: 20px;
+}
+
+/*-------铁路旅游---------*/
+.travel{
+    border: 1px red solid;
+    width: 1200px;
+    min-width: 1003px;/*避免缩放时折行*/
+    height: 640px;
+    margin: 20px auto;
+    /* display: flex; */
+}
+.travel .travel_item{
+    border: solid 1px lightgray;
+    width:  290px;
+    height: 290px;
+    /* flex: 1; */
+    float: left;
+}
+.travel dd img{
+    width:  290px;
+    height: 200px;
+}
+.travel dt{
+    line-height: 30px;
+    margin: 10px;
+}
+.travel a{
+    text-decoration: none;
+    /*如果要悬停在区域内让字体变色，要在a里添加颜色，不能是在travelname里面*/
+    color: black;
+}
+.travel .travel_name{
+    /* color: black; */
+    font-weight: 100;
+    font-size: 14px;
+}
+.travel .travel_price{
+    font-size: large;
+    color: #ff8619;
+}
+.travel a:hover{
+    /*如果要悬停在区域内让字体变色，这里必须是a，不能是dl、travel_item等
+    但是为什么价格那里颜色不变？
+    */
+    color: #3b99fc;
+}
+
+/*------------介绍栏----------------*/
+.outerintro{
+    /* border: blueviolet 1px solid; */
+    margin: 30px auto;
+    width: 1200px;  /*需要宽度否则左右边距无效*/
+    height: 300px;
+}
+.intro{
+    height: 300px;
+    width: 390px;
+    border: 1px solid lightgray;
+    float: left;
+    margin: 0px 4px;
+}
+.intro h3{
+    color: white;
+    height: 40px;
+    background-color: #0094ff;
+    text-align: center;
+    line-height: 40px;  /*行高*/
+}
+.intro ul{
+    /* border: red 1px solid; */
+    margin: 10px auto;
+    width: 300px;
+    list-style: none;
+    /*list-style-image: url(res/img/bluedot.png); /*整合后消失，路径问题*/
+    list-style-image: url(../res/img/bluedot.png);
+}
+.intro ul li{
+    line-height: 40px;
+}
+.intro a{
+    text-decoration: none;
+    font-size: 14px;
+}
+.intro a:hover{
+    color: black;
+    font-weight: bold;
+}
+/*----------提示栏-----------*/
+.note{
+    margin-right: 0px;
+    width: 50px;
+    /* background-color: blue; */
+    height: 397px;
+    /* border:blue 1px solid; */
+    position: fixed;
+    right: 0;
+    top: 150px;
+}
+.note_item{
+    width: 50px;
+    background-color: rgba(00, 94, ff, 0.5);
+    height: 86px;
+    /* border: red 1px solid; */
+    margin-bottom: 5px;
+}
+.note_item img{
+    width: 50px;
+}
+
