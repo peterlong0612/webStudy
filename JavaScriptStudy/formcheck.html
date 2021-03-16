@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>formcheck</title>
+</head>
+<body>
+    <!-- 表单提交方式：onsubmit="return func()" -->
+    <!-- 如果方法的返回值是true，可以提交表单，反之就不提交 -->
+    <form action="index.html" onsubmit="return total()">
+        <p>
+            <!--
+            input：内容不可更改的两个属性
+                readonly 只读不可修改，
+                disable 不可用，不能提交 -->
+            用户名：<input type="text" id="username" name="username" value="" onblur="checkName()">
+            <span id="namespan"></span>
+        </p>
+        <p>
+            密码：<input type="password" id="pwd" name="pwd" value="" onblur="checkPwd()">
+            <span id="pwdspan"></span>
+        </p>
+        <input type="submit" name="" id="" value="登录">
+    </form>
+    <script>
+        function checkName(){
+            var uname = document.getElementById("username").value;
+            var nsp = document.getElementById("namespan");
+            if(uname==''||uname == null){
+                nsp.style.color = "red";
+                nsp.innerText = "X 用户名不能为空！";
+                return false;
+            }else{
+                nsp.style.color = "#00ff94";
+                nsp.innerText = "√ 用户名合法非空";
+                return true;
+            }
+        }
+        function checkPwd(){
+            var pw = document.getElementById("pwd").value;
+            var pwsp = document.getElementById("pwdspan");
+            if(pw==''||pw == null){
+                pwsp.style.color = "red";
+                pwsp.innerText = "X 密码不能为空";
+                return false;
+            }else{
+                pwsp.style.color = "#94ff00";
+                pwsp.innerText = "√ 用户名合法非空";
+                return true;
+            }
+        }
+        function total(){
+
+            return checkName() && checkPwd();
+        }
+        
+    </script>
+</body>
+</html>

@@ -102,9 +102,42 @@ function opCSS(){
     
 }
 // 操作元素节点
-function opElemNode(){
-    
+function addElemNode(){
+    // 创建一个p
+    var p = document.createElement("p");
+    p.innerText = "照片：";
+    p,innerHTML = "照片：<input type="+'file'+" name="" id="" value=""><button onclick="+'addElemNode()'+">添加</button> "
+
+
+    // 创建一个input
+    var i = document.createElement("input");
+    i.type = "file";
+
+    // 创建一个button
+    var b = document.createElement("button");
+    b.innerText = "删除";
+    // 给指定节点绑定事件
+    b.onclick = function(){
+        if(window.confirm("确定删除该节点？"))
+            p.remove(); // 直接移除
+    }
+
+    // 指定标签之间三者的关系
+    p.appendChild(i);
+    p.appendChild(b);
+
+    // p.removeChild(b);
+    // p.removeChild(i);
+
+    // 把p追加到现有元素最后
+    // document.body.appendChild(p); // 这样是加在最后
+    var pl = document.getElementById("last_p");
+    // 把p放到元素之前
+    document.body.insertBefore(p,pl);
+    // document.body.removeChild(p);
+
 }
+
 
 
 function SayYesPls(){
