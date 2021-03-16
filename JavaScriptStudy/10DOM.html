@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>10DOM</title>
+    <link rel="stylesheet" href="css/10DOM.css">
+</head>
+<body>
+    <button type="button" onclick="func1()">By-ID</button><br>
+    <button type="button" onclick="func2()">By-TagName</button><br>
+    <button type="button" onclick="func3()">By-ClassName</button><br>
+
+
+    <p id="p1">p1</p>
+    <p>p2</p>
+    <p class="pc">p3</p>
+    <p class="pc">p4</p>
+
+    <div id="div1">
+        <span>s1</span>
+        <span id="s2">s2</span>
+        <span>s3</span>
+    </div>
+    <div>
+        <span>s1</span>
+        <span>s2</span>
+        <span>s3</span>
+    </div>
+    <button type="button" onclick="getChildren()" value="获得子标签">获得子标签</button><br>
+    <button type="button" onclick="getParent()" value="获得父标签">获得父标签</button><br>
+    <button type="button" onclick="getBros()" value="获得兄弟标签">获得兄弟标签</button><br>
+
+    <button type="button" onclick="oprateAb()" value="操作节点属性">操作节点属性</button><br>
+    <input type="text" id="ipt1" name="ipt" value="All my days" alt="default">
+    <br>
+    <button type="button" onclick="oprateText()" value="操作节点文本">操作节点文本</button><br>
+    <div id="div3">
+        <span id="sp3">人到中年不由己，保温杯里泡枸杞</span>
+        <span>哈哈哈</span>
+    </div>
+    <hr>
+    <input type="button" onclick="opCSS()" name="" id="" value="元素CSS样式">
+    <hr>
+    <!-- <div id="div4" style="background-color: red;;width: 200px;height: 200px;border-radius: 40px;"></div> -->
+    <div id="div4"></div>
+    
+    
+    <script src="js/10DOM.js"></script>
+</body>
+</html>
