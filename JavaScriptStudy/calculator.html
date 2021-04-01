@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculator</title>
+    <!-- 解释型语言，jQuery导入得放前面 -->
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/JQuery01.js"></script>
+    
+</head>
+<body>
+
+    结果为：<input type="text" id="result" name="" value="">
+    <!-- table>tr*4>th*4>button -->
+    <table>
+        <tr>
+            <!-- onclick="getCh(7)" -->
+            <!-- this代表当前标签对象 -->
+            <th><button onclick="getCh(this)">7</button></th>
+            <th><button onclick="getCh(this)">8</button></th>
+            <th><button onclick="getCh(this)">9</button></th>
+            <th><button onclick="getCh(this)">/</button></th>
+        </tr>
+        <tr>
+            <th><button onclick="getCh(this)">4</button></th>
+            <th><button onclick="getCh(this)">5</button></th>
+            <th><button onclick="getCh(this)">6</button></th>
+            <th><button onclick="getCh(this)">*</button></th>
+        </tr>
+        <tr>
+            <th><button onclick="getCh(this)">1</button></th>
+            <th><button onclick="getCh(this)">2</button></th>
+            <th><button onclick="getCh(this)">3</button></th>
+            <th><button onclick="getCh(this)">+</button></th>
+        </tr>
+        <tr>
+            <th><button onclick="getCh(this)">0</button></th>
+            <th><button onclick="getCh(this)">C</button></th>
+            <th><button onclick="getCh(this)">-</button></th>
+            <th><button onclick="getCh(this)">=</button></th>
+        </tr>
+    </table>
+
+    <script src="js/Calculator.js"></script>
+</body>
+</html>
